@@ -1,3 +1,0 @@
-Feature:
-Application Regression
-@smoke
