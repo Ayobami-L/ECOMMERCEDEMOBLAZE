@@ -13,7 +13,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20.13.1'
+          node-version: '20.15.0'
 
       - name: Install project dependencies
         run: npm install
@@ -22,4 +22,4 @@ jobs:
         run: npm install cypress --save-dev
 
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run
