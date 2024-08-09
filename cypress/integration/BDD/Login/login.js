@@ -44,7 +44,7 @@ When('i click on Login button', function () {
 Then('i Validate successful login', function () {
     // cy.get('#logInModal').should('not.be.visible');
     // cy.wait(20000)
-    // cy.get('#nameofuser').should('have.text', 'Welcome ' + this.data.Username);
+    // cy.get('#nameofuser').should('contains.text', 'Welcome ' + this.data.Username);
 });
 
 Then('i enter a valid username and an incorrect password', function () {
