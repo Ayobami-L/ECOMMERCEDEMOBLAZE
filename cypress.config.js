@@ -1,4 +1,4 @@
-const { defineConfig } = require("Cypress");
+const { defineConfig } = require("cypress");
 const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
 const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
 
