@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />​
+/// <reference types="cypress" />​
 /// <reference types="cypress-iframe" />​
 import 'cypress-iframe';
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor"
@@ -55,6 +55,7 @@ Then('a "Please fill out Password." alert should appear', function () {
 Then('i leave the username field empty and enter a password', function () {
     cy.get('#sign-password').type(this.data.Password)
     cy.get('#sign-username').should('be.empty');
+    cy.wait(3000)
 
 });
 Then('a "Please fill out Username." alert should appear', function () {

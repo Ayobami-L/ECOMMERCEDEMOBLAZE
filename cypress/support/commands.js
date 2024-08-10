@@ -28,10 +28,9 @@ Cypress.Commands.add('verifyAlert', (expectedMessage) => {
         expect(str).to.equal(expectedMessage);
     });
 });
-Cypress.Commands.add('onAlert', (expectedMessage) => {
-    cy.window().then((win) => {
-        cy.stub(win, 'alert').callsFake((msg) => {
-            expect(msg).to.equal(expectedMessage);
-        });
-    });
-});
+// Cypress.Commands.add('validLogin', (Username, Password) => {
+//     cy.get('#loginusername').type(Username)
+//     cy.get('#loginpassword').type(Password)
+//     cy.get("button[onclick='logIn()']").click()
+
+// });

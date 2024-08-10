@@ -3,21 +3,16 @@
 import 'cypress-iframe';
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-Cypress.Commands.add('verifyAlert', (expectedAlertText) => {
-    cy.on('window:alert', (alertText) => {
-        expect(alertText).to.equal(expectedAlertText);
-    });
-});
-
 beforeEach(function () {
-    cy.visit('https://www.demoblaze.com/')
+    // cy.visit('https://www.demoblaze.com/')
     cy.fixture('example').then(function (data) {
         this.data = data
     });
 });
 
 Given('i navigate to Demobaze Website', function () {
-    cy.url().should('include', 'demoblaze');
+    // cy.url().should('include', 'demoblaze');
+    cy.visit(Cypress.env("url"))
 });
 
 When('i click on Login', function () {
@@ -32,19 +27,21 @@ Then('i verify Login form is accessible', function () {
 });
 
 Then('i enter username and password', function () {
+    cy.wait(3000)
     cy.get('#loginusername').should('be.visible').type(this.data.Username);
+    cy.wait(3000)
     cy.get('#loginpassword').should('be.visible').type(this.data.Password);
 
 });
 
 When('i click on Login button', function () {
     cy.get("button[onclick='logIn()']").should('be.visible').click();
+    cy.wait(3000)
 });
 
 Then('i Validate successful login', function () {
-    // cy.get('#logInModal').should('not.be.visible');
-    // cy.wait(20000)
-    // cy.get('#nameofuser').should('contains.text', 'Welcome ' + this.data.Username);
+     cy.get('#nameofuser').should('contains.text', 'Welcome ' + this.data.Username);
+    
 });
 
 Then('i enter a valid username and an incorrect password', function () {
@@ -54,8 +51,9 @@ Then('i enter a valid username and an incorrect password', function () {
 });
 
 Then('i enter a valid password and an incorrect username', function () {
-    cy.get('#loginusername').type(this.data.InvalidUsername)
     cy.wait(2000)
+    cy.get('#loginusername').type(this.data.InvalidUsername)
+    
     cy.get('#loginpassword').type(this.data.Password)
 });
 
@@ -87,6 +85,7 @@ Then('i enter a username and leave the password field empty', function () {
 });
 
 Then('i leave the username field empty and enter a password', function () {
+    cy.wait(2000)
     cy.get('#loginusername').should('be.empty')
     cy.get('#loginpassword').should('be.visible').type(this.data.Password);
 });
