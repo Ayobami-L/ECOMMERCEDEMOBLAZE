@@ -4,6 +4,8 @@
   "body": "Fixtures are a great way to mock data for responses to routes",
   "Username": "Johnlaw",
   "Password": "qwerty824",
+  "ValidEmail": "bamztech@gmail.com",
+  "Message": "Returning Customer",
   "InvalidUsername": "ohnlaw",
   "InvalidPassword": "qwerty",
   "SpecialCUsername": "John@1",
